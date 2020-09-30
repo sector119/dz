@@ -8,4 +8,6 @@ for i, item in enumerate(items):
         idx.append(i)
         counter -= 1
 
-print(sum(items[idx[0] + 1:idx[-1]]))
+start, stop = idx[0], idx[-1]
+
+print(sum(items[start + 1:stop]))
