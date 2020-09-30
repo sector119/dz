@@ -4,10 +4,7 @@ idx = []
 counter = 2
 
 for i, item in enumerate(items):
-    if not counter:
-        break
-
-    if item > 0:
+    if item > 0 and counter:
         idx.append(i)
         counter -= 1
 
