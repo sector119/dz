@@ -20,12 +20,10 @@ h = (b - a) / n
 
 f = 0.3
 
-filename = '/tmp/data.txt'
+filename = 'data.txt'
 cols = 2
 
 data = [y for y in [log(x) + atan(x) for x in arange(1, b, h)] if y > f]
-
-print(f'Середнє геометричне: {geometric_mean(data)}')
 
 print('Дані у вигляді таблиці')
 
@@ -39,6 +37,9 @@ with open(filename, 'w') as f:
         print()
         f.write('\n')
 
+print(f'Середнє геометричне: {geometric_mean(data)}')
+
+# Виводимо графік
 plt.plot(data)
 plt.ylabel('y')
 plt.show()
