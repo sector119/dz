@@ -1,14 +1,16 @@
-n = int(input('Введіть к-ть елементів масиву: '))
-
 items = []
 
-while n != 0:
-    item = input('-> ')
+print('Введіть елементи масиву типу int:')
 
-    while not item.lstrip('-').isdigit():
-        item = input('Елемент не є числом, повторіть введення -> ')
+while True:
+    try:
+        item = int(input('-> '))
+    except ValueError:
+        print('Елемент не є числом, повторіть введення ', end='')
+        continue
+    except KeyboardInterrupt:
+        break
 
-    items.append(int(item))
-    n -= 1
+    items.append(item)
 
 print(max(items, key=abs))
