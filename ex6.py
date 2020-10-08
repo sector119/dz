@@ -20,6 +20,7 @@ h = (b - a) / n
 
 f = 0.3
 
+filename = '/tmp/data.txt'
 cols = 2
 
 data = [y for y in [log(x) + atan(x) for x in arange(1, b, h)] if y > f]
@@ -27,11 +28,16 @@ data = [y for y in [log(x) + atan(x) for x in arange(1, b, h)] if y > f]
 print(f'Середнє геометричне: {geometric_mean(data)}')
 
 print('Дані у вигляді таблиці')
-for row in grouper(cols, data, ''):
-    for col in row:
-        print(f'{str(col):>20}', end='')
 
-    print()
+with open(filename, 'w') as f:
+    for row in grouper(cols, data, ''):
+        for col in row:
+            row = f'{str(col):>20}'
+            print(row, end='')
+            f.write(row)
+
+        print()
+        f.write('\n')
 
 plt.plot(data)
 plt.ylabel('y')
