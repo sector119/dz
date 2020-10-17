@@ -21,6 +21,13 @@ pprint_matrix(matrix)
 matrix2 = []
 
 for i in range(0, x):
-    matrix2.append([(matrix[i][j - 1] + matrix[i][j + 1]) / 2 for j in range(1, y - 1)])
+    matrix2.append(
+        [
+            j not in (0, y - 1)
+                and (matrix[i][j - 1] + matrix[i][j + 1]) / 2
+                or matrix[i][j]
+            for j in range(0, y)
+        ]
+    )
 
 pprint_matrix(matrix2)
