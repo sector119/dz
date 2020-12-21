@@ -80,8 +80,8 @@ class DepartmentCollection:
             if self._departments[i].get_id() == _id:
                 self._departments[i] = value
                 break
-
-        print('No departments with such id')
+        else:
+            print('No departments with such id')
 
     def find(self, value):
         for department in self._departments:
